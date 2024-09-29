@@ -18,7 +18,7 @@ plt.close('all') # tidy up any unshown plots
 
 
 # Define your paths below
-run1_folder_path = '/Users/sofie/Desktop/Projects/Dissertation_Program/predictions_run1'
+best_run_folder_path = '/Users/sofie/Desktop/Projects/Dissertation_Program/predictions_run4'
 
 
 # Define a function to sort through the csv file names (containing the metrics per epoch) based upon the epoch number
@@ -156,4 +156,4 @@ def process_csvs(yT_yP_folder_path):
 
 
 # Output the metric values to a csv file per epoch for the model run
-run1 = (process_csvs(run1_folder_path), "Run 1")
+run1 = (process_csvs(best_run_folder_path), "Best Run")
