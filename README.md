@@ -23,13 +23,13 @@ This project was developed in virtual environments. To set up the environments a
 
     - For galaxy simulations:
     
-        conda env create -f galsim.yml
-        conda activate galsim
+            conda env create -f galsim.yml
+            conda activate galsim
         
     - For FCNN:
 
-        conda env create -f simuclass.yml
-        conda activate simuclass
+            conda env create -f simuclass.yml
+            conda activate simuclass
 
 2. Install Dependencies without a Virtual Environment: 
 
