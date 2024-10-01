@@ -84,15 +84,22 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
    - For automated simulations, consider pulling the automated version from the `rwl_sims` repository, which cycles through values automatically. Note that file names and paths may need to be adjusted in the `preprocessing.py` file located in the `Final` directory of this repository.
 
 2. **Preprocessing**:
-The preprocessing step is crucial for preparing the data for training the Convolutional Neural Network (CNN). This involves two main tasks:
+In this project, we preprocess simulated galaxy data to prepare it for training the Convolutional Neural Network (CNN). This step is crucial and involves the following tasks:
 
-    - Applying Fourier Transform: The pixel data from simulated galaxies undergoes a Fourier transform, converting spatial domain data into frequency domain data. This transformation helps highlight the essential features of the galaxy images for better model performance.
-    - Extracting Ellipticity Values: Corresponding ellipticity values are extracted from truth catalog FITS files. These values are vital as they serve as the target outputs for the CNN training process.
+- File Organization: Data files are organized in specified directories for easy access.
 
-The script responsible for this preprocessing is located in the Final directory and is labeled preprocessing.py. Before running the script, ensure you adjust the paths to the input files. You can find the file paths specified at the top of the script:
-    
+- Fourier Transform: We apply a Fast Fourier Transform (FFT) to pixel data, reshaping it into 2D arrays for processing. This transformation helps highlight the essential features of the galaxy images for better model performance.
+
+- Ellipticity Extraction: Corresponding ellipticity values are extracted from truth catalog FITS files. These values are vital as they serve as the target outputs for the CNN training process.
+
+- Batch Processing: Data is processed in batches, and results are saved in pickle files for efficient loading during training.
+
+The script responsible for this preprocessing is located in the Final directory and is labeled preprocessing.py. Before running the script, ensure you adjust the paths to the input files:
+  
         images_folder_path = '/path/to/ellip_images_test'
         truthcat_folder_path = '/path/to/ellip_txts'
         pickle_file_path = '/path/to/final_pickles'
     
 Make sure to update these paths to reflect the correct locations of your data files. It is recommended to keep the file names the same as those in the original script to facilitate running other scripts related to the FCNN.
+
+For detailed implementation, see the 'process_and_save_batches' and 'preprocess_batch' functions in the code.
