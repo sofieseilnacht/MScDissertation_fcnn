@@ -33,14 +33,14 @@ This project was developed in virtual environments. To set up the environments a
 
 2. Install Dependencies without a Virtual Environment: 
 
-If you prefer not to create a virtual environment, you can use the requirements.txt files to install the necessary dependencies directly:
+    If you prefer not to create a virtual environment, you can use the requirements.txt files to install the necessary dependencies directly:
 
-    For galaxy simulations:
+    - For galaxy simulations:
     
         pip install -r gal_sim_requirements.txt
 
         
-    For FCNN:
+    - For FCNN:
 
         pip install -r requirements.txt
 
