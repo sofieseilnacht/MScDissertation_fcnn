@@ -12,10 +12,10 @@ This project was developed in a virtual environment. To set up the environment a
 
     1. Create a Virtual Environment (optional but recommended):
     
-
+        '''
         conda env create -f simuclass.yml
         conda activate simuclass
-        
+        '''
 
 
 ### Project Workflow
