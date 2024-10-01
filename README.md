@@ -15,7 +15,7 @@ This project was developed in a virtual environment. To set up the environment a
         ```bash
         conda env create -f simuclass.yml
         conda activate simuclass
-        ```
+        
 
 
 ### Project Workflow
