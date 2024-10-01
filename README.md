@@ -35,6 +35,7 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
 Galaxies were simulated using the gal_sim repository. The simulations generated simulations of single galaxy images with varying ellipticity, noise levels, and other astrophysical parameters. The ellipticity values range from 0.0 to 0.4, providing a dataset of thousands of galaxies with known ellipticity. 
 
 For the purpose of this specific project, we used the simplest simulations of single galaxy images, meaning we only changed the following within the test.ini file in the inis directory:
+
         [pipeline]
         output_suffix = test_mod_e0.0
 
