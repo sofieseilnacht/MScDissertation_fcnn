@@ -27,11 +27,25 @@ Important Packages:
 - scikit-learn
 - TensorFlow
 - Keras
+
 Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
 ### Project Workflow
 1. Simulation of Galaxies:
 Galaxies were simulated using the gal_sim repository. The simulations generated simulations of single galaxy images with varying ellipticity, noise levels, and other astrophysical parameters. The ellipticity values range from 0.0 to 0.4, providing a dataset of thousands of galaxies with known ellipticity. 
+
+For the purpose of this specific project, we used the simplest simulations of single galaxy images, meaning we only changed the following within the test.ini file in the inis directory:
+        [pipeline]
+        output_suffix = test_mod_e0.0
+
+        [skymodel]
+        catalogue_filepath = ./data/catalogue_SFGs_complete_v4.1.fits.txt ; filepath is full path to file
+        psf_filepath = ./data/ska1_mid_uniform.psf.fits
+
+        ngals = 10 ; total number of galaxies, or number in cat for -1
+
+        constant_mod_e_value = 0.0 
+
 
 2. Preprocessing:
 The preprocessing step involves applying a Fourier transform to the pixel data of simulated galaxies and extracting the corresponding ellipticity values from truth catalog FITS files. This process prepares the data for training the Convolutional Neural Network (CNN). The script for this can be found in the "Final" directory and is labeled 
