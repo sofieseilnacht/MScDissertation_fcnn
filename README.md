@@ -21,12 +21,12 @@ This project was developed in virtual environments. To set up the environments a
 
 1. Create a Virtual Environment (optional but recommended):
 
-    For galaxy simulations:
+    - For galaxy simulations:
     
         conda env create -f galsim.yml
         conda activate galsim
         
-    For FCNN:
+    - For FCNN:
 
         conda env create -f simuclass.yml
         conda activate simuclass
