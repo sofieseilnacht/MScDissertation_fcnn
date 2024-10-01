@@ -8,47 +8,40 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 tbd
 
 
-### Simulation Requirements
-All credit goes to Dr. Ian Harrison and his rwl_sims GitHub repo (forked in my own repository) for the creation of the simulations portion of this project.
+### Environment Setup
+All credit goes to Dr. Ian Harrison and his rwl_sims GitHub repo (forked in my own repository) for the creation of the simulations portion of this project. All files related to simulation creation (including dependencies) can be found in the Simulation directory.
 
-To set up the environment and install the necessary dependencies, you can use the provided .yml file. Follow these steps:
+This project was developed in virtual environments. To set up the environments and install the necessary dependencies, you can use the provided `.yml` files. Follow these steps:
 
 1. Create a Virtual Environment (optional but recommended):
+
+    For galaxy simulations:
     
         conda env create -f galsim.yml
         conda activate galsim
         
+    For FCNN:
+
+        conda env create -f simuclass.yml
+        conda activate simuclass
+
 2. Install Dependencies without a Virtual Environment: 
 
-If you prefer not to create a virtual environment, you can use the requirements.txt file to install the necessary dependencies directly:
+If you prefer not to create a virtual environment, you can use the requirements.txt files to install the necessary dependencies directly:
+
+    For galaxy simulations:
+        pip install -r gal_sim_requirements.txt
+
+    For FCNN:
 
         pip install -r requirements.txt
 
-Important Packages:
+
+Important Packages for galaxy simulations and the FCNN:
 - numpy
 - pandas
 - astropy
 - matplotlib
-
-Ensure you have Python installed (version 3.12.4 or later) to run the code.
-
-### FCNN Requirements 
-This project was developed in a virtual environment. To set up the environment and install the necessary dependencies, you can use the provided .yml file. Follow these steps:
-
-1. Create a Virtual Environment (optional but recommended):
-    
-        conda env create -f simuclass.yml
-        conda activate simuclass
-        
-2. Install Dependencies without a Virtual Environment: 
-
-If you prefer not to create a virtual environment, you can use the requirements.txt file to install the necessary dependencies directly:
-
-        pip install -r requirements.txt
-
-Important Packages:
-- numpy
-- pandas
 - scikit-learn
 - TensorFlow
 - Keras
@@ -73,6 +66,8 @@ We changed the constant_mod_e_value to values between 0.0 and 0.4, changing the 
 To run the code and produce the simuations, type the following line into the terminal:
 
         python single_gaussians_galaxies.py inis/test.ini
+
+For now, the simulations are manually changed, however an automated version can be pulled from the rwl_sims repository that cycles through all the values automatically. If this route is chosen, the file names and such must be adapted in the "preprocessing.py" file within the "Final" directory of this repo.
 
 2. Preprocessing:
 The preprocessing step involves applying a Fourier transform to the pixel data of simulated galaxies and extracting the corresponding ellipticity values from truth catalog FITS files. This process prepares the data for training the Convolutional Neural Network (CNN). The script for this can be found in the "Final" directory and is labeled 
