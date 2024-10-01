@@ -88,10 +88,9 @@ The preprocessing step is crucial for preparing the data for training the Convol
     - Extracting Ellipticity Values: Corresponding ellipticity values are extracted from truth catalog FITS files. These values are vital as they serve as the target outputs for the CNN training process.
 
 The script responsible for this preprocessing is located in the Final directory and is labeled preprocessing.py. Before running the script, ensure you adjust the paths to the input files. You can find the file paths specified at the top of the script:
-    ```bash
-    images_folder_path = '/path/to/ellip_images_test'
-    truthcat_folder_path = '/path/to/ellip_txts'
-    pickle_file_path = '/path/to/final_pickles'
-    ```
-
-    Make sure to update these paths to reflect the correct locations of your data files. It is recommended to keep the file names the same as those in the original script to facilitate running other scripts related to the FCNN.
+    
+        images_folder_path = '/path/to/ellip_images_test'
+        truthcat_folder_path = '/path/to/ellip_txts'
+        pickle_file_path = '/path/to/final_pickles'
+    
+Make sure to update these paths to reflect the correct locations of your data files. It is recommended to keep the file names the same as those in the original script to facilitate running other scripts related to the FCNN.
