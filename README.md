@@ -16,10 +16,18 @@ This project was developed in a virtual environment. To set up the environment a
         conda activate simuclass
         
 2. Install Dependencies without a Virtual Environment: 
+
 If you prefer not to create a virtual environment, you can use the requirements.txt file to install the necessary dependencies directly:
 
         pip install -r requirements.txt
 
+Important Packages:
+- numpy
+- pandas
+- scikit-learn
+- TensorFlow
+- Keras
+Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
 ### Project Workflow
 1. Simulation of Galaxies:
