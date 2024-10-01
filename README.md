@@ -49,25 +49,27 @@ Important Packages for galaxy simulations and the FCNN:
 Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
 ### Project Workflow
-1. Simulation of Galaxies:
-Galaxies were simulated using the gal_sim repository. The simulations generated simulations of single galaxy images with varying ellipticity, noise levels, and other astrophysical parameters. The ellipticity values range from 0.0 to 0.4, providing a dataset of thousands of galaxies with known ellipticity. 
 
-For the purpose of this specific project, we used the simplest simulations of single galaxy images, meaning we only changed the following within the test.ini file in the inis directory:
+1. **Simulation of Galaxies**:
+   - Galaxies were simulated using the `gal_sim` repository. The simulations generated images of single galaxies with varying ellipticity, noise levels, and other astrophysical parameters. The ellipticity values range from 0.0 to 0.4, providing a dataset of thousands of galaxies with known ellipticity.
 
-        [pipeline]
-        output_suffix = test_mod_e0.0
+   - For this project, we modified the following within the `test.ini` file in the `inis` directory:
+     ```ini
+     [pipeline]
+     output_suffix = test_mod_e0.0
 
-        [skymodel]
-        ngals = 100 ; total number of galaxies, or number in cat for -1
-        constant_mod_e_value = 0.0
+     [skymodel]
+     ngals = 100 ; total number of galaxies, or number in cat for -1
+     constant_mod_e_value = 0.0
+     ```
+     We adjusted the `constant_mod_e_value` to values between 0.0 and 0.4, updating the `output_suffix` accordingly.
 
-We changed the constant_mod_e_value to values between 0.0 and 0.4, changing the output_suffix to match the varying mod_e_values. 
+   - To run the code and produce the simulations, execute the following in the terminal:
+     ```bash
+     python single_gaussians_galaxies.py inis/test.ini
+     ```
 
-To run the code and produce the simuations, type the following line into the terminal:
-
-        python single_gaussians_galaxies.py inis/test.ini
-
-For now, the simulations are manually changed, however an automated version can be pulled from the rwl_sims repository that cycles through all the values automatically. If this route is chosen, the file names and such must be adapted in the "preprocessing.py" file within the "Final" directory of this repo.
+   - For automated simulations, consider pulling the automated version from the `rwl_sims` repository, which cycles through values automatically. Note that file names and paths may need to be adjusted in the `preprocessing.py` file located in the `Final` directory of this repository.
 
 2. Preprocessing:
 The preprocessing step involves applying a Fourier transform to the pixel data of simulated galaxies and extracting the corresponding ellipticity values from truth catalog FITS files. This process prepares the data for training the Convolutional Neural Network (CNN). The script for this can be found in the "Final" directory and is labeled 
