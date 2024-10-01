@@ -9,9 +9,9 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 2. [Simulation Requirements](#simulation-requirements)
 3. [FCNN Requirements](#fcnn-requirements)
 4. [Project Workflow](#project-workflow)
-5. [Preprocessing](#preprocessing)  (if applicable)
-6. [Model Training](#model-training) (if applicable)
-7. [Results](#results) (if applicable)
+5. [Preprocessing](#preprocessing) 
+6. [Model Training](#model-training)
+7. [Results](#results)
 
 
 ### Environment Setup
@@ -63,12 +63,16 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
      ```ini
      [pipeline]
      output_suffix = test_mod_e0.0
+     output_path = /Users/sofie/Desktop/Projects/rwl_sims/ellip_txts
+     figure_path = /Users/sofie/Desktop/Projects/rwl_sims/ellip_images
 
      [skymodel]
-     ngals = 100 ; total number of galaxies, or number in cat for -1
+     catalogue_filepath = /Users/sofie/Desktop/Projects/rwl_sims/data/catalogue_SFGs_complete_v4.1.fits.txt
+     psf_filepath = /Users/sofie/Desktop/Projects/rwl_sims/data/ska1_mid_uniform.psf.fits
+     ngals = 100
      constant_mod_e_value = 0.0
      ```
-     We adjusted the `constant_mod_e_value` to values between 0.0 and 0.4, updating the `output_suffix` accordingly.
+     We adjusted the `constant_mod_e_value` to values between 0.0 and 0.4, updating the `output_suffix` accordingly. We also made sure to update the paths accordingly.
 
    - To run the code and produce the simulations, execute the following in the terminal:
      ```bash
@@ -77,5 +81,17 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
    - For automated simulations, consider pulling the automated version from the `rwl_sims` repository, which cycles through values automatically. Note that file names and paths may need to be adjusted in the `preprocessing.py` file located in the `Final` directory of this repository.
 
-2. Preprocessing:
-The preprocessing step involves applying a Fourier transform to the pixel data of simulated galaxies and extracting the corresponding ellipticity values from truth catalog FITS files. This process prepares the data for training the Convolutional Neural Network (CNN). The script for this can be found in the "Final" directory and is labeled 
+2. **Preprocessing**:
+The preprocessing step is crucial for preparing the data for training the Convolutional Neural Network (CNN). This involves two main tasks:
+
+    - Applying Fourier Transform: The pixel data from simulated galaxies undergoes a Fourier transform, converting spatial domain data into frequency domain data. This transformation helps highlight the essential features of the galaxy images for better model performance.
+    - Extracting Ellipticity Values: Corresponding ellipticity values are extracted from truth catalog FITS files. These values are vital as they serve as the target outputs for the CNN training process.
+
+The script responsible for this preprocessing is located in the Final directory and is labeled preprocessing.py. Before running the script, ensure you adjust the paths to the input files. You can find the file paths specified at the top of the script:
+    ```bash
+    images_folder_path = '/path/to/ellip_images_test'
+    truthcat_folder_path = '/path/to/ellip_txts'
+    pickle_file_path = '/path/to/final_pickles'
+    ```
+
+    Make sure to update these paths to reflect the correct locations of your data files. It is recommended to keep the file names the same as those in the original script to facilitate running other scripts related to the FCNN.
