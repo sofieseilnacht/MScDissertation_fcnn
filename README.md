@@ -36,6 +36,7 @@ This project was developed in virtual environments. To set up the environments a
 If you prefer not to create a virtual environment, you can use the requirements.txt files to install the necessary dependencies directly:
 
     For galaxy simulations:
+    
         pip install -r gal_sim_requirements.txt
 
     For FCNN:
@@ -63,12 +64,12 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
      ```ini
      [pipeline]
      output_suffix = test_mod_e0.0
-     output_path = /Users/sofie/Desktop/Projects/rwl_sims/ellip_txts
-     figure_path = /Users/sofie/Desktop/Projects/rwl_sims/ellip_images
+     output_path = /path/to/ellip_txts
+     figure_path = /path/to/ellip_images
 
      [skymodel]
-     catalogue_filepath = /Users/sofie/Desktop/Projects/rwl_sims/data/catalogue_SFGs_complete_v4.1.fits.txt
-     psf_filepath = /Users/sofie/Desktop/Projects/rwl_sims/data/ska1_mid_uniform.psf.fits
+     catalogue_filepath = /path/to/catalogue_SFGs_complete_v4.1.fits.txt
+     psf_filepath = /path/to/ska1_mid_uniform.psf.fits
      ngals = 100
      constant_mod_e_value = 0.0
      ```
