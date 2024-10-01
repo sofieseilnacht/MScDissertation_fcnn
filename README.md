@@ -12,9 +12,13 @@ This project was developed in a virtual environment. To set up the environment a
 
 1. Create a Virtual Environment (optional but recommended):
     
-        conda env create -f simuclass.yml
-        conda activate simuclass
+    conda env create -f simuclass.yml
+    conda activate simuclass
         
+2. Install Dependencies without a Virtual Environment: 
+If you prefer not to create a virtual environment, you can use the requirements.txt file to install the necessary dependencies directly:
+
+    pip install -r requirements.txt
 
 
 ### Project Workflow
