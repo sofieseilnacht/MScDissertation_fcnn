@@ -9,13 +9,12 @@ tbd
 
 ### Requirements 
 This project was developed in a virtual environment. To set up the environment and install the necessary dependencies, you can use the provided .yml file. Follow these steps:
-
     1. Create a Virtual Environment (optional but recommended):
     
-        '''
+      
         conda env create -f simuclass.yml
         conda activate simuclass
-        '''
+        
 
 
 ### Project Workflow
