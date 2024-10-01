@@ -37,12 +37,12 @@ This project was developed in virtual environments. To set up the environments a
 
     - For galaxy simulations:
     
-        pip install -r gal_sim_requirements.txt
+            pip install -r gal_sim_requirements.txt
 
         
     - For FCNN:
 
-        pip install -r requirements.txt
+            pip install -r requirements.txt
 
 
 Important Packages for galaxy simulations and the FCNN:
