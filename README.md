@@ -5,7 +5,13 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 
 
 ### Table of Contents
-tbd
+1. [Overview](#overview)
+2. [Simulation Requirements](#simulation-requirements)
+3. [FCNN Requirements](#fcnn-requirements)
+4. [Project Workflow](#project-workflow)
+5. [Preprocessing](#preprocessing)  (if applicable)
+6. [Model Training](#model-training) (if applicable)
+7. [Results](#results) (if applicable)
 
 
 ### Environment Setup
@@ -48,8 +54,8 @@ Important Packages for galaxy simulations and the FCNN:
 
 Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
-### Project Workflow
 
+### Project Workflow
 1. **Simulation of Galaxies**:
    - Galaxies were simulated using the `gal_sim` repository. The simulations generated images of single galaxies with varying ellipticity, noise levels, and other astrophysical parameters. The ellipticity values range from 0.0 to 0.4, providing a dataset of thousands of galaxies with known ellipticity.
 
