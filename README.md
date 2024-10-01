@@ -7,7 +7,32 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 ### Table of Contents
 tbd
 
-### Requirements 
+
+### Simulation Requirements
+All credit goes to Dr. Ian Harrison and his rwl_sims GitHub repo (forked in my own repository) for the creation of the simulations portion of this project.
+
+To set up the environment and install the necessary dependencies, you can use the provided .yml file. Follow these steps:
+
+1. Create a Virtual Environment (optional but recommended):
+    
+        conda env create -f galsim.yml
+        conda activate galsim
+        
+2. Install Dependencies without a Virtual Environment: 
+
+If you prefer not to create a virtual environment, you can use the requirements.txt file to install the necessary dependencies directly:
+
+        pip install -r requirements.txt
+
+Important Packages:
+- numpy
+- pandas
+- astropy
+- matplotlib
+
+Ensure you have Python installed (version 3.12.4 or later) to run the code.
+
+### FCNN Requirements 
 This project was developed in a virtual environment. To set up the environment and install the necessary dependencies, you can use the provided .yml file. Follow these steps:
 
 1. Create a Virtual Environment (optional but recommended):
@@ -40,13 +65,14 @@ For the purpose of this specific project, we used the simplest simulations of si
         output_suffix = test_mod_e0.0
 
         [skymodel]
-        catalogue_filepath = ./data/catalogue_SFGs_complete_v4.1.fits.txt ; filepath is full path to file
-        psf_filepath = ./data/ska1_mid_uniform.psf.fits
+        ngals = 100 ; total number of galaxies, or number in cat for -1
+        constant_mod_e_value = 0.0
 
-        ngals = 10 ; total number of galaxies, or number in cat for -1
+We changed the constant_mod_e_value to values between 0.0 and 0.4, changing the output_suffix to match the varying mod_e_values. 
 
-        constant_mod_e_value = 0.0 
+To run the code and produce the simuations, type the following line into the terminal:
 
+        python single_gaussians_galaxies.py inis/test.ini
 
 2. Preprocessing:
 The preprocessing step involves applying a Fourier transform to the pixel data of simulated galaxies and extracting the corresponding ellipticity values from truth catalog FITS files. This process prepares the data for training the Convolutional Neural Network (CNN). The script for this can be found in the "Final" directory and is labeled 
