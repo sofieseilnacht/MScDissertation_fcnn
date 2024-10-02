@@ -11,7 +11,9 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 4. [Preprocessing](#preprocessing) 
 5. [Model Training](#model-training)
 6. [Results](#results)
-7. [Contributors and Acknowledgements](#contributors_and_acknowledgements)
+7. [Licensing](#licensing)
+8. [Open Source Contribution](#open_source_contribution)
+9. [Contributors and Acknowledgements](#contributors_and_acknowledgements)
 
 
 ## Environment Setup
@@ -139,7 +141,17 @@ The findings of this project and a discussion of future work possibilities are d
 
 Additionally, the 'difference_metrics.py' script, found in the 'Final' directory, generates metrics derived from the model's predictions. This script processes CSV files containing true and predicted values for training, validation, and test datasets across epochs, calculating the differences between these values. It organizes the data by epoch and saves the results into new CSV files, facilitating a comprehensive analysis of model performance over time.
 
+As mentioned in the sections above, ensure the file paths are updated when running each code.
+
 For visual representation, the 'true_pred_graph.py' script in the same directory allows us to output these metrics for comparison. To view the plots associated with the project results, please refer to the 'Project_Results/plots' directory.
+
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+## Open Source Contribution
+This project is open-source, and contributions are welcome! If you have suggestions for improvements, bug fixes, or new features, feel free to create a pull request or open an issue. Please ensure that your contributions align with the project's goals and follow the code of conduct outlined in the repository.
 
 
 ## Contributors and Acknowledgements
