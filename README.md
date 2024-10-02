@@ -11,6 +11,7 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 4. [Preprocessing](#preprocessing) 
 5. [Model Training](#model-training)
 6. [Results](#results)
+7. [Contributors and Acknowledgements](#contributors_and_acknowledgements)
 
 
 ## Environment Setup
@@ -105,7 +106,8 @@ For detailed implementation, see the 'process_and_save_batches' and 'preprocess_
 
 
 ## Model Training
-This section outlines the training process for the Convolutional Neural Network (CNN) utilized to predict galaxy ellipticity values. The relevant code can be found in the `fcnn.py` file located in the `Final` directory. This script showcases the best-performing model architecture, having been optimized through experimentation with over ten different architectures, where various metrics were employed to identify the most effective model.
+This section outlines the training process for the Convolutional Neural Network (CNN) utilized to predict galaxy ellipticity values. The relevant code can be found in the `fcnn.py` file located in the `Final` directory. This script showcases the best-performing model architecture, having been optimized through experimentation with over ten different architectures, where various metrics were employed to identify the most effective model. An example of our second-best performing model architecture, along with the modifications made during the optimization process, can be found in the 'Archive' directory.
+
 
 1. **Model Architecture**: The model is designed as a linear regression Convolutional Neural Network (CNN) to analyze processed galaxy images in Fourier space. Its architecture comprises multiple convolutional layers followed by dense layers, enabling it to capture intricate features and relationships within the data. A visual representation of this architecture is available in the `Project_Results/plots` directory under the filename `model_visualization.png`.
 
@@ -120,6 +122,8 @@ This section outlines the training process for the Convolutional Neural Network 
    To initiate the training process, execute the following command in your terminal:
    ```bash
    python train_model.py
+   ```
+
 Ensure the script paths and filenames reflect your setup.
 
 4. **Hyperparameters**:
@@ -127,8 +131,22 @@ Ensure the script paths and filenames reflect your setup.
     - Batch Size: 32
     - Epochs: 100
 
-5. **Evaluation**: Upon completion of training, the model is evaluated using a separate validation dataset to assess its performance. The evaluation metrics include normalized and non-normalized MAE, MSE, RMSE, and an astrophysical difference metric that quantifies the predicted values against the true labels, facilitating a comprehensive analysis of the model's performance.
+5. **Evaluation**: Upon completion of training, the model is evaluated using a separate validation dataset to assess its performance. The evaluation metrics include normalized and non-normalized MAE, MSE, RMSE, and an astrophysical difference metric that quantifies the predicted values against the true labels, facilitating a comprehensive analysis of the model's performance. These metrics are automatically output to .csv files when the script is run.
 
 
 ## Results
-The 
+The findings of this project and a discussion of future work possibilities are detailed in the 'final_dissertation.pdf' file located in the 'Dissertation' directory.
+
+Additionally, the 'difference_metrics.py' script, found in the 'Final' directory, generates metrics derived from the model's predictions. This script processes CSV files containing true and predicted values for training, validation, and test datasets across epochs, calculating the differences between these values. It organizes the data by epoch and saves the results into new CSV files, facilitating a comprehensive analysis of model performance over time.
+
+For visual representation, the 'true_pred_graph.py' script in the same directory allows us to output these metrics for comparison. To view the plots associated with the project results, please refer to the 'Project_Results/plots' directory.
+
+
+## Contributors and Acknowledgements
+I would like to express my heartfelt gratitude to Dr. Ian Harrison for his invaluable supervision throughout this project. His innovative vision and the code for the galaxy simulations laid the groundwork for my work, allowing me to take charge of the project.
+
+A special thank you to Dr. Martin Chorley and his PhD student, Sam Everest, for their insightful suggestions on preprocessing and data management, which significantly optimized RAM usage and improved efficiency.
+
+I also extend my appreciation to Jenny Highfield and the Cardiff University Cyber Security Defense Lab for their generous support in providing the essential computing resources that enabled the completion of this experiment.
+
+Furthermore, I am thankful to Dr. Oktay Karakus and his PhD students, Zien Ma and Wanli Ma, for their expert guidance on model architecture in Fourier space using complex values. Their contributions were instrumental to the success of this project.
