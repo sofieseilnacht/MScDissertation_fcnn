@@ -7,15 +7,14 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 ## Table of Contents
 1. [Overview](#overview)
 2. [Environment Setup](#environment-setup)
-3. [Project Workflow](#project-workflow)
-4. [Galaxy Simulations](#galaxy-simulations)
-5. [Preprocessing](#preprocessing) 
-6. [Model Training](#model-training)
-7. [Results](#results)
+3. [Galaxy Simulations](#galaxy-simulations)
+4. [Preprocessing](#preprocessing) 
+5. [Model Training](#model-training)
+6. [Results](#results)
 
 
 ## Environment Setup
-All credit goes to Dr. Ian Harrison and his rwl_sims GitHub repo (forked in my own repository) for the creation of the simulations portion of this project. All files related to simulation creation (including dependencies) can be found in the Simulation directory.
+Credit goes to Dr. Ian Harrison and his rwl_sims GitHub repository for the creation of the simulations portion of this project. All files related to simulation creation (including dependencies) can be found in the Simulation directory.
 
 This project was developed in virtual environments. To set up the environments and install the necessary dependencies, you can use the provided `.yml` files. Follow these steps:
 
@@ -57,8 +56,7 @@ Important Packages for galaxy simulations and the FCNN:
 Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
 
-## Project Workflow
-### Simulation of Galaxies
+## Simulation of Galaxies
    - Galaxies were simulated using the `gal_sim` repository. The simulations generated images of single galaxies with varying ellipticity, noise levels, and other astrophysical parameters. The ellipticity values range from 0.0 to 0.4, providing a dataset of thousands of galaxies with known ellipticity.
 
    - For this project, we modified the following within the `test.ini` file in the `inis` directory:
@@ -83,16 +81,16 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
    - For automated simulations, consider pulling the automated version from the `rwl_sims` repository, which cycles through values automatically. Note that file names and paths may need to be adjusted in the `preprocessing.py` file located in the `Final` directory of this repository.
 
-### Preprocessing
+## Preprocessing
 In this project, we preprocess simulated galaxy data to prepare it for training the Convolutional Neural Network (CNN). This step is crucial and involves the following tasks:
 
-- File Organization: Data files are organized in specified directories for easy access.
+   - File Organization: Data files are organized in specified directories for easy access.
 
-- Fourier Transform: We apply a Fast Fourier Transform (FFT) to pixel data, reshaping it into 2D arrays for processing. This transformation helps highlight the essential features of the galaxy images for better model performance.
+   - Fourier Transform: We apply a Fast Fourier Transform (FFT) to pixel data, reshaping it into 2D arrays for processing. This transformation helps highlight the essential features of the galaxy images for better model performance.
 
-- Ellipticity Extraction: Corresponding ellipticity values are extracted from truth catalog FITS files. These values are vital as they serve as the target outputs for the CNN training process.
+   - Ellipticity Extraction: Corresponding ellipticity values are extracted from truth catalog FITS files. These values are vital as they serve as the target outputs for the CNN training process.
 
-- Batch Processing: Data is processed in batches, and results are saved in pickle files for efficient loading during training.
+   - Batch Processing: Data is processed in batches, and results are saved in pickle files for efficient loading during training.
 
 The script responsible for this preprocessing is located in the Final directory and is labeled preprocessing.py. Before running the script, ensure you adjust the paths to the input files:
   
@@ -103,3 +101,28 @@ The script responsible for this preprocessing is located in the Final directory 
 Make sure to update these paths to reflect the correct locations of your data files. It is recommended to keep the file names the same as those in the original script to facilitate running other scripts related to the FCNN.
 
 For detailed implementation, see the 'process_and_save_batches' and 'preprocess_batch' functions in the code.
+
+
+## Model Training
+This section details the training process of the Convolutional Neural Network (CNN) used for predicting galaxy ellipticity values. This can be found in the 'fcnn.py' file in the 'Final' directory.
+
+1. **Model Architecture**: The model is a linear regression Convolutional Neural Network (CNN), designed to analyze the processed images of galaxies in Fourier space. The architecture includes several convolutional layers followed by dense layers to capture intricate features and relationships within the data. A visual depiction of the architecture can be seen in the 'Project_Results/plots' directory in the image labeled 'model_visualization.png'.
+
+2. **Training Procedure**: 
+    - The training process utilizes the prepared datasets saved as pickle files. 
+    - The model is trained using the mean squared error (MSE) as the loss function, with the optimizer set to Adam.
+    - Training metrics include Mean Absolute Error (MAE), MSE, and Root Mean Squared Error (RMSE) for performance evaluation.
+
+3. **Training Command**:
+   To initiate the training process, run the following command in your terminal:
+   ```bash
+   python train_model.py
+
+Ensure the script paths and filenames reflect your setup.
+
+4. **Hyperparameters**:
+    - Learning Rate: 0.001
+    - Batch Size: 32
+    - Epochs: 100
+
+5. **Evaluation**: After training, the model is evaluated on a separate validation dataset to gauge its performance. The final metrics are saved for further analysis.
