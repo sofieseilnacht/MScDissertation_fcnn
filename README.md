@@ -8,12 +8,10 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 1. [Overview](#overview)
 2. [Environment Setup](#environment-setup)
 3. [Project Workflow](#project-workflow)
-
-    - [1. Preprocessing](#preprocessing) 
-
-    - [2. Model Training](#model-training)
-
-    - [3. Results](#results)
+4. [Galaxy Simulations](#galaxy-simulations)
+5. [Preprocessing](#preprocessing) 
+6. [Model Training](#model-training)
+7. [Results](#results)
 
 
 ### Environment Setup
@@ -60,7 +58,7 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
 
 ### Project Workflow
-#### 1. **Simulation of Galaxies**:
+#### Simulation of Galaxies
    - Galaxies were simulated using the `gal_sim` repository. The simulations generated images of single galaxies with varying ellipticity, noise levels, and other astrophysical parameters. The ellipticity values range from 0.0 to 0.4, providing a dataset of thousands of galaxies with known ellipticity.
 
    - For this project, we modified the following within the `test.ini` file in the `inis` directory:
@@ -85,7 +83,7 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
    - For automated simulations, consider pulling the automated version from the `rwl_sims` repository, which cycles through values automatically. Note that file names and paths may need to be adjusted in the `preprocessing.py` file located in the `Final` directory of this repository.
 
-#### 2. **Preprocessing**:
+#### Preprocessing
 In this project, we preprocess simulated galaxy data to prepare it for training the Convolutional Neural Network (CNN). This step is crucial and involves the following tasks:
 
 - File Organization: Data files are organized in specified directories for easy access.
