@@ -81,6 +81,7 @@ Ensure you have Python installed (version 3.12.4 or later) to run the code.
 
    - For automated simulations, consider pulling the automated version from the `rwl_sims` repository, which cycles through values automatically. Note that file names and paths may need to be adjusted in the `preprocessing.py` file located in the `Final` directory of this repository.
 
+
 ## Preprocessing
 In this project, we preprocess simulated galaxy data to prepare it for training the Convolutional Neural Network (CNN). This step is crucial and involves the following tasks:
 
@@ -104,20 +105,21 @@ For detailed implementation, see the 'process_and_save_batches' and 'preprocess_
 
 
 ## Model Training
-This section details the training process of the Convolutional Neural Network (CNN) used for predicting galaxy ellipticity values. This can be found in the 'fcnn.py' file in the 'Final' directory.
+This section outlines the training process for the Convolutional Neural Network (CNN) utilized to predict galaxy ellipticity values. The relevant code can be found in the `fcnn.py` file located in the `Final` directory. This script showcases the best-performing model architecture, having been optimized through experimentation with over ten different architectures, where various metrics were employed to identify the most effective model.
 
-1. **Model Architecture**: The model is a linear regression Convolutional Neural Network (CNN), designed to analyze the processed images of galaxies in Fourier space. The architecture includes several convolutional layers followed by dense layers to capture intricate features and relationships within the data. A visual depiction of the architecture can be seen in the 'Project_Results/plots' directory in the image labeled 'model_visualization.png'.
+1. **Model Architecture**: The model is designed as a linear regression Convolutional Neural Network (CNN) to analyze processed galaxy images in Fourier space. Its architecture comprises multiple convolutional layers followed by dense layers, enabling it to capture intricate features and relationships within the data. A visual representation of this architecture is available in the `Project_Results/plots` directory under the filename `model_visualization.png`.
 
-2. **Training Procedure**: 
-    - The training process utilizes the prepared datasets saved as pickle files. 
-    - The model is trained using the mean squared error (MSE) as the loss function, with the optimizer set to Adam.
-    - Training metrics include Mean Absolute Error (MAE), MSE, and Root Mean Squared Error (RMSE) for performance evaluation.
+2. **Training Procedure**:
+   - The training process utilizes datasets that have been preprocessed and saved as pickle files.
+
+   - The model is trained with mean squared error (MSE) as the loss function, employing the Adam optimizer for enhanced performance.
+
+   - Key training metrics include Mean Absolute Error (MAE), MSE, and Root Mean Squared Error (RMSE) to evaluate the model's accuracy.
 
 3. **Training Command**:
-   To initiate the training process, run the following command in your terminal:
+   To initiate the training process, execute the following command in your terminal:
    ```bash
    python train_model.py
-
 Ensure the script paths and filenames reflect your setup.
 
 4. **Hyperparameters**:
@@ -125,4 +127,8 @@ Ensure the script paths and filenames reflect your setup.
     - Batch Size: 32
     - Epochs: 100
 
-5. **Evaluation**: After training, the model is evaluated on a separate validation dataset to gauge its performance. The final metrics are saved for further analysis.
+5. **Evaluation**: Upon completion of training, the model is evaluated using a separate validation dataset to assess its performance. The evaluation metrics include normalized and non-normalized MAE, MSE, RMSE, and an astrophysical difference metric that quantifies the predicted values against the true labels, facilitating a comprehensive analysis of the model's performance.
+
+
+## Results
+The 
