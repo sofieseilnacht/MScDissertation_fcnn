@@ -6,12 +6,11 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 
 ### Table of Contents
 1. [Overview](#overview)
-2. [Simulation Requirements](#simulation-requirements)
-3. [FCNN Requirements](#fcnn-requirements)
-4. [Project Workflow](#project-workflow)
-5. [Preprocessing](#preprocessing) 
-6. [Model Training](#model-training)
-7. [Results](#results)
+2. [Environment Setup](#environment-setup)
+3. [Project Workflow](#project-workflow)
+        1. [Preprocessing](#preprocessing) 
+        2. [Model Training](#model-training)
+        3. [Results](#results)
 
 
 ### Environment Setup
