@@ -8,10 +8,9 @@ This project aims to predict galaxy ellipticity values from radio interferometri
 1. [Overview](#overview)
 2. [Environment Setup](#environment-setup)
 3. [Project Workflow](#project-workflow)
-
-        1. [Preprocessing](#preprocessing) 
-        2. [Model Training](#model-training)
-        3. [Results](#results)
+        - [Preprocessing](#preprocessing) 
+        - [Model Training](#model-training)
+        - [Results](#results)
 
 
 ### Environment Setup
